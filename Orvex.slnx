@@ -1,4 +1,6 @@
 ﻿<Solution>
-  <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="Unity.InputSystem.InGameHints.csproj" />
+  <Project Path="Unity.InputSystem.Recorder.csproj" />
 </Solution>
