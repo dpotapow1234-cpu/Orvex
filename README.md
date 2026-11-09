@@ -81,3 +81,8 @@ The project's license will be specified here.
 
 **ORVEX — Build Beyond Limits.**  
 **ORVEX — Строй без границ.**
+
+
+![](https://komarev.com)
+
+![](https://igorkowalczyk.dev)
