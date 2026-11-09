@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 
 public static class ChunkMeshGenerator
 {
+    private static readonly Dictionary<Chunk, Mesh> generatedMeshes =
+    new Dictionary<Chunk, Mesh>();
+
     private static readonly Vector3[][] Faces =
     {
+
         // Верх
         new Vector3[]
         {
@@ -75,7 +78,8 @@ public static class ChunkMeshGenerator
     };
 
     public static void Generate(Chunk chunk)
-    {
+    { 
+
         List<Vector3> vertices = new List<Vector3>();
         List<Vector2> uvs = new List<Vector2>();
 
@@ -123,8 +127,24 @@ public static class ChunkMeshGenerator
             }
         }
 
-        Mesh mesh = new Mesh();
+        MeshFilter filter = chunk.GetComponent<MeshFilter>();
+        MeshRenderer renderer = chunk.GetComponent<MeshRenderer>();
+        MeshCollider collider = chunk.GetComponent<MeshCollider>();
 
+        // Удаляем только Mesh, созданный этим генератором.
+        if (generatedMeshes.TryGetValue(chunk, out Mesh oldMesh))
+        {
+            if (collider != null)
+                collider.sharedMesh = null;
+
+            if (filter.sharedMesh == oldMesh)
+                filter.sharedMesh = null;
+
+            Object.Destroy(oldMesh);
+        }
+
+        // Создаём новый Mesh.
+        Mesh mesh = new Mesh();
         mesh.indexFormat = IndexFormat.UInt32;
 
         mesh.SetVertices(vertices);
@@ -140,18 +160,13 @@ public static class ChunkMeshGenerator
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
 
-        MeshFilter filter = chunk.GetComponent<MeshFilter>();
-        MeshRenderer renderer = chunk.GetComponent<MeshRenderer>();
-        MeshCollider collider = chunk.GetComponent<MeshCollider>();
-
         filter.sharedMesh = mesh;
         renderer.sharedMaterials = chunk.GetMaterials();
 
         if (collider != null)
-        {
-            collider.sharedMesh = null;
             collider.sharedMesh = mesh;
-        }
+
+        generatedMeshes[chunk] = mesh;
     }
 
     private static void AddFace(

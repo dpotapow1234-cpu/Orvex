@@ -65,6 +65,25 @@ public class Chunk : MonoBehaviour
         }
     }
 
+    public void SetBlock(int x, int y, int z, BlockType type)
+    {
+        if (x < 0 || x >= Size ||
+            y < 0 || y >= Height ||
+            z < 0 || z >= Size)
+            return;
+
+        blocks[x, y, z] = type;
+
+        ChunkMeshGenerator.Generate(this);
+    }
+
+    public bool IsValidPosition(int x, int y, int z)
+    {
+        return x >= 0 && x < Size &&
+               y >= 0 && y < Height &&
+               z >= 0 && z < Size;
+    }
+
     public BlockType GetBlock(int x, int y, int z)
     {
         if (x < 0 || x >= Size ||
