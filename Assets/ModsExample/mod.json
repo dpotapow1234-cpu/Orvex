@@ -1,0 +1,12 @@
+﻿{
+    "id": "example_mod",
+    "name": "Example Mod",
+    "version": "1.0.0",
+    "author": "Developer",
+    "description": "Example Orvex modification",
+    "gameVersion": "0.1.0",
+    "apiVersion": "1.0",
+    "type": "hybrid",
+    "dependencies": [],
+    "entryPoint": "ExampleMod.Main"
+}

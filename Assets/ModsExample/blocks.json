@@ -1,0 +1,18 @@
+{
+  "blocks": [
+    {
+      "id": "magic_stone",
+      "name": "Magic Stone",
+      "texture": "magic_stone.png",
+      "hardness": 3.0,
+      "solid": true
+    },
+    {
+      "id": "crystal_block",
+      "name": "Crystal Block",
+      "texture": "crystal.png",
+      "hardness": 1.5,
+      "solid": true
+    }
+  ]
+}
