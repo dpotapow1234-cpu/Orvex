@@ -2,42 +2,107 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
+    public float jumpForce = 5f;
     public float speed = 5f;
+
     public float rayDistance = 1.0f;
-    public LayerMask collisionMask;    // Маска слоев, с которыми нужно сталкиваться
+    public LayerMask collisionMask;
+
     public Server.TickRate serverT;
 
-    public void Start()
+    public float mouseSensitivity = 100f;
+
+    public Transform playerBody;
+    public Rigidbody rb;
+    public Transform camera;
+
+    private float xRotation = 0f;
+
+    private bool jumpRequested;
+
+    public Transform groundCheck;
+    public float groundRadius = 0.2f;
+
+    private void Start()
     {
         serverT.OnTick += Move;
-
     }
 
-    public void OnDestroy()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            jumpRequested = true;
+    }
+
+    private void OnDestroy()
     {
         serverT.OnTick -= Move;
     }
 
-
     public void Move()
     {
-        float moveHorizontal = Input.
+        float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        // Выпускаем луч перед объектом
-        if (Physics.Raycast(transform.position, movement, out RaycastHit hit, rayDistance, collisionMask))
+
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        camera.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        playerBody.Rotate(Vector3.up * mouseX);
+
+        Vector3 movement =
+            playerBody.right * moveHorizontal +
+            playerBody.forward * moveVertical;
+
+        movement = Vector3.ClampMagnitude(movement, 1f);
+
+        Vector3 direction = movement.normalized;
+
+        if (movement.magnitude > 0.01f)
         {
-            // Если луч во что-то уперся, останавливаемся на дистанции до точки удара (минус небольшой отступ)
-            float distanceToObstacle = hit.distance;
-            if (distanceToObstacle > 0.1f)
+            if (!Physics.Raycast(
+                transform.position,
+                direction,
+                out RaycastHit hit,
+                rayDistance,
+                collisionMask))
             {
-                transform.position += movement * (distanceToObstacle - 0.05f);
+                transform.position += movement * speed * Time.deltaTime;
             }
         }
-        else
+
+        // Прыжок
+        if (!jumpRequested)
+            return;
+
+        jumpRequested = false;
+
+        if (Physics.CheckSphere(
+            groundCheck.position,
+            groundRadius,
+            collisionMask))
         {
-            // Если впереди чисто — двигаемся дальше
-            transform.position += movement * speed * Time.deltaTime;
+            rb.linearVelocity = new Vector3(
+                rb.linearVelocity.x,
+                0f,
+                rb.linearVelocity.z
+            );
+
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(
+            transform.position,
+            Vector3.down,
+            rayDistance,
+            collisionMask
+        );
     }
 }
