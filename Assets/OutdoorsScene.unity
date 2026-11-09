@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 283804038}
   - component: {fileID: 283804037}
   - component: {fileID: 283804039}
+  - component: {fileID: 283804040}
   m_Layer: 0
   m_Name: Server
   m_TagString: Untagged
@@ -621,7 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ec4bd28930fbc4a93a23ef5fdcad18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Server.TickRate
-  tickRate: 20
+  tickRate: 60
 --- !u!4 &283804038
 Transform:
   m_ObjectHideFlags: 0
@@ -651,8 +652,141 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldGenerator
   player: {fileID: 1357443287}
   chunkPrefab: {fileID: 3706240900049061463, guid: d6ed38062ccbc9441bba40c374a957c3, type: 3}
-  renderDistance: 3
+  renderDistance: 5
   seed: 12345
+--- !u!114 &283804040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283804036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9ac3c25ac123849849a1e1acd6a3a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayNightCycle
+  timeOfDay: 12
+  dayLengthInMinutes: 20
+  runTime: 1
+  sun: {fileID: 157207113}
+  sunColor:
+    serializedVersion: 2
+    key0: {r: 0.0035563763, g: 0.00088999845, b: 0.18867922, a: 1}
+    key1: {r: 0.4716981, g: 0.23708197, b: 0, a: 1}
+    key2: {r: 0.23002528, g: 0.7830189, b: 0, a: 0}
+    key3: {r: 0.8113208, g: 0.25568032, b: 0, a: 0}
+    key4: {r: 0.07993266, g: 0, b: 0.3490566, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 8867
+    ctime2: 30262
+    ctime3: 54741
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 5
+    m_NumAlphaKeys: 2
+  sunIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.18844986
+      value: 1.6174927
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5008457
+      value: 26.061283
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 0
+    m_RotationOrder: 4
+  ambientColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  fogColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  skybox: {fileID: 0}
+  stars: {fileID: 0}
+  nightStarsThreshold: 0.15
 --- !u!1 &298112493
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +993,7 @@ GameObject:
   - component: {fileID: 1357443284}
   - component: {fileID: 1357443288}
   - component: {fileID: 1357443289}
+  - component: {fileID: 1357443290}
   m_Layer: 15
   m_Name: GameObject
   m_TagString: Untagged
@@ -1000,6 +1135,18 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e6d874d38f6c51e4091c1da9efb6c888, type: 3}
   crackMaterial: {fileID: 2100000, guid: 696a481e20632334eaab0ea020b02c21, type: 2}
   offset: 0.003
+--- !u!114 &1357443290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357443283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab0990c2604ba54583dfd2fbf490e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CursorController
 --- !u!1 &1833159728
 GameObject:
   m_ObjectHideFlags: 0
