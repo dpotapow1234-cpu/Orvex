@@ -1,0 +1,164 @@
+# Contributing to Orvex
+
+Thank you for your interest in contributing to **Orvex**!
+
+We welcome contributions from developers, mod creators, designers, and everyone interested in helping improve the project.
+
+This document describes the guidelines for contributing to Orvex.
+
+## 1. Getting Started
+
+Before contributing:
+
+1. Fork the Orvex repository.
+2. Clone your fork locally.
+3. Create a separate branch for your changes.
+4. Make sure the project builds successfully.
+5. Test your changes before submitting a Pull Request.
+
+## 2. Development Guidelines
+
+Please follow these guidelines when working on Orvex:
+
+- Keep code clean, readable, and maintainable.
+- Follow the existing project architecture.
+- Use meaningful names for classes, methods, and variables.
+- Avoid unnecessary dependencies.
+- Do not introduce breaking changes without discussion.
+- Keep systems modular and extensible.
+- Document complex functionality when necessary.
+
+## 3. Code Style
+
+When contributing C# code:
+
+- Use PascalCase for classes, methods, and public properties.
+- Use camelCase for local variables and method parameters.
+- Use meaningful and descriptive names.
+- Keep methods focused on a single responsibility.
+- Avoid duplicated code.
+- Follow the formatting conventions already used in the project.
+
+Example:
+
+```csharp
+public class WorldManager
+{
+    public void GenerateWorld()
+    {
+        // World generation logic
+    }
+}
+```
+
+## 4. Mods and Extensions
+
+Orvex supports a modular architecture.
+
+Contributions related to the Mods System should:
+
+- Follow the official modding API.
+- Avoid unnecessary dependencies between mods.
+- Respect the engine's lifecycle and initialization process.
+- Avoid modifying internal engine systems when an official API is available.
+- Include compatibility considerations when introducing new features.
+
+Mods should be designed to remain as independent as possible.
+
+## 5. Issues and Bug Reports
+
+When reporting a bug, include:
+
+- A clear description of the problem.
+- Steps to reproduce the issue.
+- Expected behavior.
+- Actual behavior.
+- Relevant error messages or logs.
+- Environment information, including the Orvex version.
+
+Search existing issues before creating a new report.
+
+## 6. Feature Requests
+
+Before implementing a major feature:
+
+1. Open an issue describing the proposed feature.
+2. Explain why it would benefit Orvex.
+3. Describe the proposed implementation.
+4. Wait for feedback before starting substantial work.
+
+Small improvements and documentation fixes can be submitted directly.
+
+## 7. Pull Requests
+
+When submitting a Pull Request:
+
+- Use a descriptive title.
+- Explain what has been changed.
+- Describe the reason for the changes.
+- Reference related issues when applicable.
+- Ensure the project builds successfully.
+- Test the affected functionality.
+- Keep Pull Requests focused on a single task.
+
+Pull Requests may be reviewed, modified, or rejected by project maintainers.
+
+## 8. Commit Messages
+
+Use clear and descriptive commit messages.
+
+Recommended prefixes:
+
+| Prefix | Description |
+|---|---|
+| `feat:` | New feature |
+| `fix:` | Bug fix |
+| `refactor:` | Code restructuring |
+| `docs:` | Documentation |
+| `perf:` | Performance improvement |
+| `test:` | Tests |
+| `chore:` | Maintenance |
+
+Examples:
+
+```text
+feat: add dynamic weather system
+fix: resolve chunk generation issue
+refactor: improve mods initialization
+docs: update modding documentation
+```
+
+## 9. Licensing
+
+By contributing to Orvex, you agree that your contributions to the project's source code will be distributed under the **MIT License**.
+
+You must have the legal right to submit the code and resources you contribute.
+
+Do not submit:
+
+- Copyrighted materials without permission.
+- Code copied from incompatible licenses.
+- Assets without appropriate redistribution rights.
+- Malicious code or unauthorized data collection.
+
+Game assets and other resources may be subject to separate licensing terms.
+
+## 10. Community Guidelines
+
+All contributors are expected to:
+
+- Be respectful and constructive.
+- Welcome different opinions.
+- Provide helpful feedback.
+- Avoid harassment and discrimination.
+- Focus discussions on improving Orvex.
+
+## 11. Final Notes
+
+Every contribution matters, whether it is a bug report, documentation improvement, new feature, or a complete system.
+
+Thank you for helping make **Orvex** better!
+
+---
+
+**Orvex Development Team**
