@@ -603,6 +603,7 @@ GameObject:
   - component: {fileID: 283804037}
   - component: {fileID: 283804039}
   - component: {fileID: 283804040}
+  - component: {fileID: 283804041}
   m_Layer: 0
   m_Name: Server
   m_TagString: Untagged
@@ -787,6 +788,18 @@ MonoBehaviour:
   skybox: {fileID: 0}
   stars: {fileID: 0}
   nightStarsThreshold: 0.15
+--- !u!114 &283804041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283804036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e024e255afad219428c4829ef7799f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ModLoader
 --- !u!1 &298112493
 GameObject:
   m_ObjectHideFlags: 0
