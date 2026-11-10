@@ -1,5 +1,7 @@
 # Orvex
 
+![](https://komarev.com/)
+
 **Orvex** is an open-source voxel sandbox game focused on exploration, procedural worlds, modular architecture, and multiplayer gameplay.
 
 The project aims to provide a flexible foundation for creating and exploring voxel-based worlds, with support for modifications and dedicated multiplayer servers.
