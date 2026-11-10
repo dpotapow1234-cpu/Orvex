@@ -122,6 +122,7 @@ See [LICENSE](LICENSE) for license information.
 
 ## Links | Ссылки
 
-- [Repository](https://github.com/dpotapow1234-cpu/Orvex) — Репозиторий
+- [Repository](https://github.com/dpotapow1234-cpu/Orvex) — Репозиторий проекта
+- [Repository](https://github.com/dpotapow1234-cpu/OrvexServer) — Репозиторий сервера
 - [Issues](https://github.com/dpotapow1234-cpu/Orvex/issues) — Сообщить об ошибке
 - [Wiki](https://github.com/dpotapow1234-cpu/Orvex/wiki) — Документация проекта
