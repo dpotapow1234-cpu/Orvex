@@ -1,0 +1,10 @@
+﻿{
+    "items": [
+        {
+            "id": "magic_sword",
+            "name": "Magic Sword",
+            "icon": "magic_sword.png",
+            "maxStack": 1
+        }
+    ]
+}
